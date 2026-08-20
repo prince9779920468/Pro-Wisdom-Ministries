@@ -14,27 +14,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro W - आधुनिक पुस्तक भंडार</title>
+    <title>Pro W - डिजिटल मिनिस्ट्री</title>
     <!-- Google Fonts & Font Awesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4338ca;
-            --accent: #06b6d4;
-            --accent-glow: rgba(6, 182, 212, 0.35);
-            --success: #10b981;
-            --success-hover: #059669;
-            --dark: #0f172a;
-            --card-bg: #ffffff;
-            --bg-body: #f1f5f9;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
+            --bg-main: #0a0f1d;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --accent-cyan: #06b6d4;
+            --accent-glow: rgba(99, 102, 241, 0.25);
+            --text-pure: #ffffff;
+            --text-muted: #94a3b8;
         }
 
         * {
@@ -45,433 +41,211 @@
         }
 
         body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
+            background-color: var(--bg-main);
+            color: var(--text-pure);
+            line-height: 1.7;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.12) 0px, transparent 50%);
+            min-height: 100vh;
         }
 
-        /* Hero Header Section */
-        header {
-            background: radial-gradient(circle at 80% 20%, #4338ca 0%, #1e1b4b 60%, #0f172a 100%);
-            color: white;
-            padding: 80px 20px 70px;
-            text-align: center;
+        /* Hero Section */
+        .hero {
             position: relative;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+            padding: 100px 20px 80px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        header .badge-top {
+        .badge-pill {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 6px 16px;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 8px 20px;
             border-radius: 50px;
             font-size: 0.85rem;
-            font-weight: 600;
-            color: #a5f3fc;
-            margin-bottom: 18px;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            color: #a5b4fc;
+            margin-bottom: 24px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
         }
 
-        header h1 {
-            font-size: 2.8rem;
+        .hero h1 {
+            font-size: 3.4rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .gradient-text {
+            background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        header p {
-            font-size: 1.15rem;
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto;
+        .hero-lead {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 750px;
+            margin: 0 auto 35px;
         }
 
+        /* Content Container */
         .container {
-            max-width: 1140px;
-            margin: -35px auto 50px;
+            max-width: 1100px;
+            margin: 0 auto 70px;
             padding: 0 20px;
-            position: relative;
-            z-index: 10;
         }
 
-        /* Highlights / Info Card */
-        .info-card {
+        /* Core Philosophy Cards */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .card {
             background: var(--card-bg);
+            border: 1px solid var(--card-border);
             border-radius: 20px;
-            padding: 25px 30px;
-            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            margin-bottom: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
+            padding: 35px 30px;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 40px -15px var(--accent-glow);
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .info-icon {
-            width: 48px;
-            height: 48px;
-            background: #eef2ff;
-            color: var(--primary);
-            border-radius: 12px;
+        .icon-box {
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid rgba(99, 102, 241, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: 1.4rem;
+            color: #c084fc;
+            margin-bottom: 20px;
         }
 
-        .info-text h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .info-text p {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--dark);
-            letter-spacing: -0.5px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-top: 5px;
-        }
-
-        /* Modern Book Grid */
-        .book-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-        }
-
-        /* Advanced Card Styling */
-        .book-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            display: flex;
-            flex-direction: column;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .book-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.18);
-            border-color: #c7d2fe;
-        }
-
-        .img-container {
-            position: relative;
-            width: 100%;
-            height: 240px;
-            background: #e2e8f0;
-            overflow: hidden;
-        }
-
-        .book-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .book-card:hover .book-img {
-            transform: scale(1.06);
-        }
-
-        .tag {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(6px);
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 30px;
-            letter-spacing: 0.4px;
-        }
-
-        .tag.hot {
-            background: linear-gradient(135deg, #f43f5e, #e11d48);
-        }
-
-        .book-content {
-            padding: 22px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            color: #f59e0b;
-            font-size: 0.8rem;
-            margin-bottom: 8px;
-        }
-
-        .rating span {
-            color: var(--text-muted);
-            font-weight: 600;
-            margin-left: 4px;
-        }
-
-        .book-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 6px;
-            line-height: 1.35;
-        }
-
-        .book-desc {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin-bottom: 18px;
-            flex-grow: 1;
-        }
-
-        .card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 14px;
-            margin-top: auto;
-        }
-
-        .price-box {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .price {
+        .card h3 {
             font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-        }
-
-        .buy-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #25d366, #128c7e);
-            color: white;
-            text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 12px;
             font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.28);
-            transition: all 0.3s ease;
+            margin-bottom: 12px;
+            color: #f8fafc;
         }
 
-        .buy-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
-            background: linear-gradient(135deg, #1ebe5d, #0e7266);
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Big Statement Banner */
+        .statement-banner {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.05));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 24px;
+            padding: 50px 35px;
+            text-align: center;
+            backdrop-filter: blur(16px);
+        }
+
+        .statement-banner h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .statement-banner p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
         }
 
         footer {
-            background: #ffffff;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--card-border);
             text-align: center;
             padding: 35px 20px;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* Mobile responsiveness */
-        @media (max-width: 600px) {
-            header h1 { font-size: 2rem; }
-            .info-card { flex-direction: column; align-items: flex-start; }
+        @media (max-width: 768px) {
+            .hero { padding: 60px 20px 40px; }
+            .hero h1 { font-size: 2.3rem; }
+            .hero-lead { font-size: 1.05rem; }
+            .statement-banner { padding: 35px 20px; }
+            .statement-banner h2 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <div class="badge-top"><i class="fa-solid fa-sparkles"></i> एक्सक्लूसिव कलेक्शन</div>
-        <h1>Pro W डिजिटल लाइब्रेरी</h1>
-        <p>अपनी पसंदीदा किताबें चुनें और सीधे एक क्लिक में सुरक्षित ऑर्डर करें।</p>
+    <!-- Hero Header -->
+    <header class="hero">
+        <div class="badge-pill">
+            <i class="fa-solid fa-sparkles"></i> आध्यात्मिक व सामाजिक चेतना
+        </div>
+        <h1>
+            <span class="gradient-text">Pro W</span> डिजिटल मिनिस्ट्री
+        </h1>
+        <p class="hero-lead">
+            आधुनिक तकनीक के माध्यम से जीवन मूल्यों, सामाजिक प्रेरणा और आध्यात्मिक मार्गदर्शन को जन-जन तक पहुँचाने का एक सशक्त डिजिटल मंच।
+        </p>
     </header>
 
     <div class="container">
-        <!-- Feature Highlights Bar -->
-        <div class="info-card">
-            <div class="info-item">
-                <div class="info-icon"><i class="fa-solid fa-truck-fast"></i></div>
-                <div class="info-text">
-                    <h4>फास्ट डिलीवरी</h4>
-                    <p>पूरे भारत में सुरक्षित शिपिंग</p>
-                </div>
-            </div>
-            <div class="info-item">
-                <div class="info-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="info-text">
-                    <h4>100% ओरिजिनल</h4>
-                    <p>प्रमाणित और उच्च गुणवत्ता</p>
-                </div>
-            </div>
-            <div class="info-item">
-                <div class="info-icon"><i class="fa-solid fa-headset"></i></div>
-                <div class="info-text">
-                    <h4>24/7 सहायता</h4>
-                    <p>WhatsApp पर तुरंत सपोर्ट</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section Title -->
-        <div class="section-header">
-            <h2>लोकप्रिय पुस्तकें</h2>
-            <p>सबसे ज्यादा पसंद की जाने वाली और ट्रेंडिंग किताबों की सूची</p>
-        </div>
-
-        <!-- Book Cards Grid -->
-        <div class="book-grid">
+        <!-- Feature Highlights -->
+        <div class="grid-cards">
             
-            <!-- Book 1 -->
-            <div class="book-card">
-                <div class="img-container">
-                    <span class="tag hot">बेस्टसेलर</span>
-                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80" alt="Book Cover" class="book-img">
+            <div class="card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-lightbulb"></i>
                 </div>
-                <div class="book-content">
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                        <span>(4.8)</span>
-                    </div>
-                    <h3 class="book-title">सफलता के रहस्य</h3>
-                    <p class="book-desc">व्यक्तिगत विकास, माइंडसेट और जीवन में लक्ष्य हासिल करने के व्यावहारिक तरीके।</p>
-                    <div class="card-footer">
-                        <div class="price-box">
-                            <span class="price-label">कीमत</span>
-                            <span class="price">₹299</span>
-                        </div> 
-                        </a>
-                    </div>
-                </div>
+                <h3>हमारा उद्देश्य</h3>
+                <p>समाज में सकारात्मक विचार, प्रेरणा और आध्यात्मिक चेतना का प्रसार करना, जिससे हर व्यक्ति जीवन की दिशा को बेहतर समझ सके।</p>
             </div>
 
-            <!-- Book 2 -->
-            <div class="book-card">
-                <div class="img-container">
-                    <span class="tag">नया संस्करण</span>
-                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&auto=format&fit=crop&q=80" alt="Book Cover" class="book-img">
+            <div class="card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-compass"></i>
                 </div>
-                <div class="book-content">
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <span>(5.0)</span>
-                    </div>
-                    <h3 class="book-title">वित्तीय स्वतंत्रता और निवेश</h3>
-                    <p class="book-desc">पैसे के प्रबंधन, स्मार्ट इन्वेस्टमेंट और वेल्थ क्रिएशन की संपूर्ण गाइड।</p>
-                    <div class="card-footer">
-                        <div class="price-box">
-                            <span class="price-label">कीमत</span>
-                            <span class="price">₹449</span>
-                        </div>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते,%20मुझे%20'वित्तीय%20स्वतंत्रता'%20किताब%20खरीदनी%20है।" class="buy-btn">
-                            <i class="fa-brands fa-whatsapp"></i> ऑर्डर करें
-                        </a>
-                    </div>
-                </div>
+                <h3>डिजिटल मार्गदर्शन</h3>
+                <p>समसामयिक चुनौतियों के बीच सही मार्गदर्शन, आत्म-विकास और जीवन मूल्यों पर आधारित सशक्त डिजिटल संदेश।</p>
             </div>
 
-            <!-- Book 3 -->
-            <div class="book-card">
-                <div class="img-container">
-                    <span class="tag">ट्रेंडिंग</span>
-                    <img src="https://images.unsplash.com/photo-1532012164546-f432f2e3777f?w=600&auto=format&fit=crop&q=80" alt="Book Cover" class="book-img">
+            <div class="card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-users"></i>
                 </div>
-                <div class="book-content">
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <span>(4.2)</span>
-                    </div>
-                    <h3 class="book-title">डिजिटल मार्केटिंग मास्टरक्लास</h3>
-                    <p class="book-desc">ऑनलाइन बिजनेस और सोशल मीडिया ग्रोथ की आधुनिक रणनीतियों का संग्रह।</p>
-                    <div class="card-footer">
-                        <div class="price-box">
-                            <span class="price-label">कीमत</span>
-                            <span class="price">₹380</span>
-                        </div>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते,%20मुझे%20'डिजिटल%20मार्केटिंग'%20किताब%20खरीदनी%20है।" class="buy-btn">
-                            <i class="fa-brands fa-whatsapp"></i> ऑर्डर करें
-                        </a>
-                    </div>
-                </div>
+                <h3>सकारात्मक समुदाय</h3>
+                <p>एक ऐसा सशक्त मंच जहाँ लोग आपसी जुड़ाव, सेवा भाव और प्रेरणादायी विचारों के साथ एक-दूसरे का सहयोग करते हैं।</p>
             </div>
 
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Pro W. सर्वाधिकार सुरक्षित | सुरक्षित और विश्वसनीय ऑनलाइन खरीदारी</p>
-    </footer>
-
+       
 </body>
 </html>
-    </style>
-</head>
-<body>
-
-    <header>
+         <header>
         <h1>Pro Wisdom Ministries</h1>
         <p>www.prowisdomministries.in</p>
     </header>
