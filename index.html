@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro W - डिजिटल मिनिस्ट्री</title>
+    <title>Pro Wisdom Ministries</title>
     <!-- Google Fonts & Font Awesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -204,13 +204,13 @@
     <!-- Hero Header -->
     <header class="hero">
         <div class="badge-pill">
-            <i class="fa-solid fa-sparkles"></i> आध्यात्मिक व सामाजिक चेतना
+            <i class="fa-solid fa-sparkles"></i> Spiritual & Social Consciousness
         </div>
         <h1>
-            <span class="gradient-text">Pro W</span> डिजिटल मिनिस्ट्री
+            <span class="gradient-text">Pro Wisdom Ministries
         </h1>
         <p class="hero-lead">
-            आधुनिक तकनीक के माध्यम से जीवन मूल्यों, सामाजिक प्रेरणा और आध्यात्मिक मार्गदर्शन को जन-जन तक पहुँचाने का एक सशक्त डिजिटल मंच।
+            A powerful digital platform to spread life values, social inspiration and spiritual guidance to the masses through modern technology.
         </p>
     </header>
 
@@ -222,43 +222,33 @@
                 <div class="icon-box">
                     <i class="fa-solid fa-lightbulb"></i>
                 </div>
-                <h3>हमारा उद्देश्य</h3>
-                <p>समाज में सकारात्मक विचार, प्रेरणा और आध्यात्मिक चेतना का प्रसार करना, जिससे हर व्यक्ति जीवन की दिशा को बेहतर समझ सके।</p>
+                <h3>OUR MOTIVE</h3>
+                <p>To spread spiritual consciousness in the society so that every person can understand the direction of life better.</p>
             </div>
-
-            <div class="card">
-                <div class="icon-box">
-                    <i class="fa-solid fa-compass"></i>
-                </div>
-                <h3>डिजिटल मार्गदर्शन</h3>
-                <p>समसामयिक चुनौतियों के बीच सही मार्गदर्शन, आत्म-विकास और जीवन मूल्यों पर आधारित सशक्त डिजिटल संदेश।</p>
-            </div>
-
-            <div class="card">
+ <div class="card">
                 <div class="icon-box">
                     <i class="fa-solid fa-users"></i>
                 </div>
-                <h3>सकारात्मक समुदाय</h3>
-                <p>एक ऐसा सशक्त मंच जहाँ लोग आपसी जुड़ाव, सेवा भाव और प्रेरणादायी विचारों के साथ एक-दूसरे का सहयोग करते हैं।</p>
+                <h3>Positive community</h3>
+                <p>A powerful platform where people support each other through mutual connection, service spirit and inspirational thoughts</p>
             </div>
 
        
 </body>
 </html>
          <header>
-        <h1>Pro Wisdom Ministries</h1>
         <p>www.prowisdomministries.in</p>
     </header>
 
     <div class="container">
-        <!-- मिनिस्ट्री इन्फो -->
+        
         <div class="card">
             <h2>About Our Ministry</h2>
             <p>OUR MINISTRY FOCUSED ON SALVATION THROUGH CHRIST AND WORKS OF THE HOLY SPIRIT, OUR VISION IS TO SAVE UNCOUNTABLE SOULS FOR HEAVEN, IN OUR MINISTRY OVER THOUSANDS OF INDIVIDUALS & WORLD PROPHECIES HAS BEEN DONE WHICH CAME TO PASS, MANY TESTIMONIES, AND NOW IT'S YOUR TIME TO RECEIVE YOUR MIRACLE IN JESUS NAME</p>
         </div>
         </div>
 
-        <!-- संपर्क सेक्शन -->
+      
         <div class="card" style="margin-top: 35px;">
             <h2>Contact & Support</h2>
             <p><strong>Email:</strong> marshalpeter230@gmail.com</p>
@@ -270,5 +260,253 @@
     <footer>
         &copy; 2000 Pro Wisdom Ministries. All Rights Reserved.
     </footer>
+     <!-- ================= START: PRO WISDOM SOCIAL HUB ================= -->
+<style>
+    /* Floating Social Trigger Button */
+    .prow-social-float {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: linear-gradient(135deg, #6366f1, #a855f7);
+        color: #ffffff;
+        border: none;
+        padding: 14px 24px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 9999;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .prow-social-float:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 15px 30px rgba(99, 102, 241, 0.6);
+    }
+
+    /* Modal Backdrop */
+    .prow-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(8px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        padding: 20px;
+    }
+
+    /* Modal Card */
+    .prow-modal-card {
+        background: #0f172a;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 24px;
+        padding: 30px;
+        width: 100%;
+        max-width: 440px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        color: #ffffff;
+        animation: prowFadeIn 0.3s ease-out;
+        position: relative;
+    }
+
+    @keyframes prowFadeIn {
+        from { opacity: 0; transform: scale(0.95) translateY(12px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .prow-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 16px;
+    }
+    .prow-modal-header h3 {
+        font-size: 1.3rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #a5b4fc, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .prow-close-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        color: #94a3b8;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+    .prow-close-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+    }
+
+    /* Links Container */
+    .prow-links-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .prow-link-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 18px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        text-decoration: none;
+        color: #ffffff;
+        transition: all 0.3s ease;
+    }
+    .prow-link-item:hover {
+        transform: translateX(4px);
+        background: rgba(255, 255, 255, 0.07);
+    }
+
+    .prow-item-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+    .prow-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        color: white;
+    }
+    .prow-details .platform-title {
+        font-size: 0.8rem;
+        color: #94a3b8;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .prow-details .platform-user {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #f8fafc;
+    }
+
+    /* Brand Accents */
+    .item-instagram .prow-icon {
+        background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+    .item-instagram:hover {
+        border-color: rgba(225, 48, 108, 0.4);
+    }
+
+    .item-facebook .prow-icon {
+        background: #1877f2;
+    }
+    .item-facebook:hover {
+        border-color: rgba(24, 119, 242, 0.4);
+    }
+
+    .item-youtube .prow-icon {
+        background: #ff0000;
+    }
+    .item-youtube:hover {
+        border-color: rgba(255, 0, 0, 0.4);
+    }
+
+    .arrow-icon {
+        color: #64748b;
+        font-size: 0.9rem;
+        transition: transform 0.2s;
+    }
+    .prow-link-item:hover .arrow-icon {
+        transform: translateX(3px);
+        color: #ffffff;
+    }
+</style>
+
+<!-- Floating Corner Button -->
+<button class="prow-social-float" onclick="openProwModal()">
+    <i class="fa-solid fa-share-nodes"></i> सोशल मीडिया कनेक्ट
+</button>
+
+<!-- Popup Modal -->
+<div class="prow-modal-overlay" id="prowSocialModal">
+    <div class="prow-modal-card">
+        <div class="prow-modal-header">
+            <h3>कनेक्ट करें</h3>
+            <button class="prow-close-btn" onclick="closeProwModal()">&times;</button>
+        </div>
+
+        <div class="prow-links-list">
+            <!-- Instagram -->
+            <a href="https://instagram.com/_prophetwisdom" target="_blank" class="prow-link-item item-instagram">
+                <div class="prow-item-left">
+                    <div class="prow-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="prow-details">
+                        <div class="platform-title">Instagram</div>
+                        <div class="platform-user">@_prophetwisdom</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://facebook.com/ProWisdomMinistries" target="_blank" class="prow-link-item item-facebook">
+                <div class="prow-item-left">
+                    <div class="prow-icon"><i class="fa-brands fa-facebook-f"></i></div>
+                    <div class="prow-details">
+                        <div class="platform-title">Facebook</div>
+                        <div class="platform-user">Pro Wisdom Ministries</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://youtube.com/@Prophetwisdom101" target="_blank" class="prow-link-item item-youtube">
+                <div class="prow-item-left">
+                    <div class="prow-icon"><i class="fa-brands fa-youtube"></i></div>
+                    <div class="prow-details">
+                        <div class="platform-title">YouTube</div>
+                        <div class="platform-user">@Prophetwisdom101</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openProwModal() {
+        document.getElementById('prowSocialModal').style.display = 'flex';
+    }
+
+    function closeProwModal() {
+        document.getElementById('prowSocialModal').style.display = 'none';
+    }
+
+    window.onclick = function(e) {
+        const modal = document.getElementById('prowSocialModal');
+        if (e.target === modal) {
+            closeProwModal();
+        }
+    }
+</script>
+<!-- ================= END: PRO WISDOM SOCIAL HUB ================= -->
 
                   
