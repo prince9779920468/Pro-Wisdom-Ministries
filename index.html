@@ -9,32 +9,464 @@
         <div class="card">
             <h2></h2>
             <p><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro W</title>
+    <title>Pro W - आधुनिक पुस्तक भंडार</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #1e3a8a, #0f172a); color: white; padding: 50px 20px; text-align: center; }
-        header h1 { font-size: 2.2rem; margin-bottom: 8px; }
-        header p { font-size: 1.1rem; opacity: 0.9; }
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        .section-title { text-align: center; color: #1e3a8a; font-size: 1.8rem; margin: 40px 0 20px; }
-        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 25px; }
-        .card h2 { color: #1e3a8a; margin-bottom: 12px; }
-        
-        /* Book Store Grid */
-        .book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        .book-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); padding: 20px; text-align: center; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; }
-        .book-img { width: 100%; height: 220px; object-fit: cover; background-color: #e2e8f0; border-radius: 8px; margin-bottom: 15px; }
-        .book-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: #0f172a; }
-        .book-desc { font-size: 0.9rem; color: #64748b; margin-bottom: 12px; }
-        .price { font-size: 1.3rem; font-weight: bold; color: #16a34a; margin-bottom: 15px; }
-        .buy-btn { display: inline-block; background-color: #25d366; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; transition: 0.3s; }
-        .buy-btn:hover { background-color: #1da851; }
-        footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.9rem; margin-top: 40px; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4338ca;
+            --accent: #06b6d4;
+            --accent-glow: rgba(6, 182, 212, 0.35);
+            --success: #10b981;
+            --success-hover: #059669;
+            --dark: #0f172a;
+            --card-bg: #ffffff;
+            --bg-body: #f1f5f9;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Header Section */
+        header {
+            background: radial-gradient(circle at 80% 20%, #4338ca 0%, #1e1b4b 60%, #0f172a 100%);
+            color: white;
+            padding: 80px 20px 70px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+        }
+
+        header .badge-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #a5f3fc;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: -35px auto 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Highlights / Info Card */
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px 30px;
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: #eef2ff;
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .info-text h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .info-text p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* Modern Book Grid */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        /* Advanced Card Styling */
+        .book-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.18);
+            border-color: #c7d2fe;
+        }
+
+        .img-container {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+
+        .book-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .book-card:hover .book-img {
+            transform: scale(1.06);
+        }
+
+        .tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 30px;
+            letter-spacing: 0.4px;
+        }
+
+        .tag.hot {
+            background: linear-gradient(135deg, #f43f5e, #e11d48);
+        }
+
+        .book-content {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #f59e0b;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        .rating span {
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-left: 4px;
+        }
+
+        .book-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+
+        .book-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 14px;
+            margin-top: auto;
+        }
+
+        .price-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .buy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.28);
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+            background: linear-gradient(135deg, #1ebe5d, #0e7266);
+        }
+
+        footer {
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 35px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .info-card { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="badge-top"><i class="fa-solid fa-sparkles"></i> एक्सक्लूसिव कलेक्शन</div>
+        <h1>Pro W डिजिटल लाइब्रेरी</h1>
+        <p>अपनी पसंदीदा किताबें चुनें और सीधे एक क्लिक में सुरक्षित ऑर्डर करें।</p>
+    </header>
+
+    <div class="container">
+        <!-- Feature Highlights Bar -->
+        <div class="info-card">
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="info-text">
+                    <h4>फास्ट डिलीवरी</h4>
+                    <p>पूरे भारत में सुरक्षित शिपिंग</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="info-text">
+                    <h4>100% ओरिजिनल</h4>
+                    <p>प्रमाणित और उच्च गुणवत्ता</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="info-text">
+                    <h4>24/7 सहायता</h4>
+                    <p>WhatsApp पर तुरंत सपोर्ट</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Title -->
+        <div class="section-header">
+            <h2>लोकप्रिय पुस्तकें</h2>
+            <p>सबसे ज्यादा पसंद की जाने वाली और ट्रेंडिंग किताबों की सूची</p>
+        </div>
+
+        <!-- Book Cards Grid -->
+        <div class="book-grid">
+            
+            <!-- Book 1 -->
+            <div class="book-card">
+                <div class="img-container">
+                    <span class="tag hot">बेस्टसेलर</span>
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80" alt="Book Cover" class="book-img">
+                </div>
+                <div class="book-content">
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span>(4.8)</span>
+                    </div>
+                    <h3 class="book-title">सफलता के रहस्य</h3>
+                    <p class="book-desc">व्यक्तिगत विकास, माइंडसेट और जीवन में लक्ष्य हासिल करने के व्यावहारिक तरीके।</p>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="price-label">कीमत</span>
+                            <span class="price">₹299</span>
+                        </div> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book-card">
+                <div class="img-container">
+                    <span class="tag">नया संस्करण</span>
+                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&auto=format&fit=crop&q=80" alt="Book Cover" class="book-img">
+                </div>
+                <div class="book-content">
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <h3 class="book-title">वित्तीय स्वतंत्रता और निवेश</h3>
+                    <p class="book-desc">पैसे के प्रबंधन, स्मार्ट इन्वेस्टमेंट और वेल्थ क्रिएशन की संपूर्ण गाइड।</p>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="price-label">कीमत</span>
+                            <span class="price">₹449</span>
+                        </div>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते,%20मुझे%20'वित्तीय%20स्वतंत्रता'%20किताब%20खरीदनी%20है।" class="buy-btn">
+                            <i class="fa-brands fa-whatsapp"></i> ऑर्डर करें
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book-card">
+                <div class="img-container">
+                    <span class="tag">ट्रेंडिंग</span>
+                    <img src="https://images.unsplash.com/photo-1532012164546-f432f2e3777f?w=600&auto=format&fit=crop&q=80" alt="Book Cover" class="book-img">
+                </div>
+                <div class="book-content">
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <span>(4.2)</span>
+                    </div>
+                    <h3 class="book-title">डिजिटल मार्केटिंग मास्टरक्लास</h3>
+                    <p class="book-desc">ऑनलाइन बिजनेस और सोशल मीडिया ग्रोथ की आधुनिक रणनीतियों का संग्रह।</p>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <span class="price-label">कीमत</span>
+                            <span class="price">₹380</span>
+                        </div>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=नमस्ते,%20मुझे%20'डिजिटल%20मार्केटिंग'%20किताब%20खरीदनी%20है।" class="buy-btn">
+                            <i class="fa-brands fa-whatsapp"></i> ऑर्डर करें
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Pro W. सर्वाधिकार सुरक्षित | सुरक्षित और विश्वसनीय ऑनलाइन खरीदारी</p>
+    </footer>
+
+</body>
+</html>
     </style>
 </head>
 <body>
